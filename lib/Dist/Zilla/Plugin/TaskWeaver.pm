@@ -1,9 +1,8 @@
 package Dist::Zilla::Plugin::TaskWeaver;
-our $VERSION = '0.093330';
-
-
+our $VERSION = '0.093370';
 use Moose;
-extends 'Dist::Zilla::Plugin::PodWeaver';
+extends qw(Dist::Zilla::Plugin::PodWeaver);
+with 'Dist::Zilla::Role::FileGatherer';
 # ABSTRACT: a PodWeaver plugin used to build Task distributions
 
 
@@ -39,9 +38,25 @@ has prereq => (
   default  => sub { {} },
 );
 
+sub gather_files {
+  my ($self) = @_;
+  
+  $self->add_file(
+    Dist::Zilla::File::InMemory->new({
+      name    => 't/task-bogus.t',
+      content => <<'END_TEST',
+use strict;
+use Test::More tests => 1;
+ok(1, 'tasks need no tests, but CPAN clients demand them');
+END_TEST
+    }),
+  );
+}
+
 with 'Dist::Zilla::Role::FixedPrereqs';
 
 1;
+
 
 __END__
 =pod
@@ -52,7 +67,7 @@ Dist::Zilla::Plugin::TaskWeaver - a PodWeaver plugin used to build Task distribu
 
 =head1 VERSION
 
-version 0.093330
+version 0.093370
 
 =head1 DESCRIPTION
 

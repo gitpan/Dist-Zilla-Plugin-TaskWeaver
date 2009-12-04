@@ -8,5 +8,6 @@ README
 dist.ini
 lib/Dist/Zilla/Plugin/TaskWeaver.pm
 lib/Pod/Weaver/Plugin/TaskWeaver.pm
+t/compile.t
 t/release-pod-coverage.t
 t/release-pod-syntax.t
