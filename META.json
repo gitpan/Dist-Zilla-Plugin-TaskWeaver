@@ -6,8 +6,8 @@
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "generated_by" : "Dist::Zilla version 1.093380",
-   "version" : "0.093390",
+   "generated_by" : "Dist::Zilla version 1.093400",
+   "version" : "0.093420",
    "name" : "Dist-Zilla-Plugin-TaskWeaver",
    "author" : [
       "Ricardo Signes <rjbs@cpan.org>"
@@ -17,6 +17,7 @@
       "Test::More" : "0.88",
       "Pod::Elemental" : "0",
       "Dist::Zilla" : "1.093371",
+      "Pod::Weaver" : "3",
       "Moose::Autobox" : "0",
       "Moose" : "0"
    },
