@@ -11,10 +11,11 @@ WriteMakefile(
   NAME      => 'Dist::Zilla::Plugin::TaskWeaver',
   AUTHOR    => "Ricardo\ Signes\ \<rjbs\@cpan\.org\>",
   ABSTRACT  => "a\ PodWeaver\ plugin\ used\ to\ build\ Task\ distributions",
-  VERSION   => '0.093420',
+  VERSION   => '0.093450',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
+    "Dist::Zilla::Plugin::PodWeaver" => '0',
     "Test::More" => '0.88',
     "Pod::Elemental" => '0',
     "Dist::Zilla" => '1.093371',

@@ -1,5 +1,5 @@
 package Pod::Weaver::Plugin::TaskWeaver;
-our $VERSION = '0.093420';
+our $VERSION = '0.093450';
 use Moose;
 with 'Pod::Weaver::Role::Dialect';
 with 'Pod::Weaver::Role::Section';
@@ -102,7 +102,7 @@ Pod::Weaver::Plugin::TaskWeaver - Dist::Zilla::Plugin::TaskWeaver's helper
 
 =head1 VERSION
 
-version 0.093420
+version 0.093450
 
 =head1 DESCRIPTION
 

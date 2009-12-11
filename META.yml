@@ -10,6 +10,7 @@ meta-spec:
 name: Dist-Zilla-Plugin-TaskWeaver
 requires:
   Dist::Zilla: 1.093371
+  Dist::Zilla::Plugin::PodWeaver: 0
   Moose: 0
   Moose::Autobox: 0
   Pod::Elemental: 0
@@ -17,4 +18,4 @@ requires:
   Test::More: 0.88
 resources:
   repository: http://github.com/rjbs/dist-zilla-plugin-taskweaver
-version: 0.093420
+version: 0.093450
