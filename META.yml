@@ -2,20 +2,30 @@
 abstract: 'a PodWeaver plugin used to build Task distributions'
 author:
   - 'Ricardo Signes <rjbs@cpan.org>'
-generated_by: 'Dist::Zilla version 1.093400'
+build_requires:
+  Test::More: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.31
+generated_by: 'Dist::Zilla version 2.100880'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Dist-Zilla-Plugin-TaskWeaver
 requires:
-  Dist::Zilla: 1.093371
+  Dist::Zilla: 2
   Dist::Zilla::Plugin::PodWeaver: 0
+  Dist::Zilla::Role::FileGatherer: 0
+  Dist::Zilla::Role::PrereqSource: 0
   Moose: 0
   Moose::Autobox: 0
   Pod::Elemental: 0
+  Pod::Elemental::Selectors: 0
+  Pod::Elemental::Transformer::Nester: 0
   Pod::Weaver: 3
+  Pod::Weaver::Role::Dialect: 0
+  Pod::Weaver::Role::Section: 0
   Test::More: 0.88
 resources:
-  repository: http://github.com/rjbs/dist-zilla-plugin-taskweaver
-version: 0.093450
+  repository: git://git.codesimply.com/Dist-Zilla-Plugin-TaskWeaver.git
+version: 0.100890
