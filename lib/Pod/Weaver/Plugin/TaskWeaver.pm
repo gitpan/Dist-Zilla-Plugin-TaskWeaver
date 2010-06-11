@@ -1,5 +1,7 @@
 package Pod::Weaver::Plugin::TaskWeaver;
-$Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.100890';
+BEGIN {
+  $Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.101620';
+}
 use Moose;
 with 'Pod::Weaver::Role::Dialect';
 with 'Pod::Weaver::Role::Section';
@@ -68,7 +70,7 @@ sub weave_section {
       my ($pkg, $ver, $reason) = split /\s+/sm, $child->content, 3;
       $self->record_prereq($pkg, $ver);
 
-      $child->content(defined $ver ? "$pkg $ver" : $pkg);
+      $child->content(defined $ver ? "L<$pkg> $ver" : "L<$pkg>");
 
       if (defined $ver and defined $reason) {
         $child->children->unshift(
@@ -102,7 +104,7 @@ Pod::Weaver::Plugin::TaskWeaver - Dist::Zilla::Plugin::TaskWeaver's helper
 
 =head1 VERSION
 
-version 0.100890
+version 0.101620
 
 =head1 DESCRIPTION
 

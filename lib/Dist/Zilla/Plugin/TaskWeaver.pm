@@ -1,5 +1,7 @@
 package Dist::Zilla::Plugin::TaskWeaver;
-$Dist::Zilla::Plugin::TaskWeaver::VERSION = '0.100890';
+BEGIN {
+  $Dist::Zilla::Plugin::TaskWeaver::VERSION = '0.101620';
+}
 use Moose;
 extends qw(Dist::Zilla::Plugin::PodWeaver);
 with 'Dist::Zilla::Role::FileGatherer';
@@ -72,7 +74,7 @@ Dist::Zilla::Plugin::TaskWeaver - a PodWeaver plugin used to build Task distribu
 
 =head1 VERSION
 
-version 0.100890
+version 0.101620
 
 =head1 DESCRIPTION
 

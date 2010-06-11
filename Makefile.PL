@@ -9,42 +9,52 @@ use ExtUtils::MakeMaker 6.31;
 
 
 my %WriteMakefileArgs = (
-                       'test' => {
-                                   'TESTS' => 't/*.t'
-                                 },
-                       'NAME' => 'Dist::Zilla::Plugin::TaskWeaver',
-                       'DISTNAME' => 'Dist-Zilla-Plugin-TaskWeaver',
-                       'CONFIGURE_REQUIRES' => {
-                                                 'ExtUtils::MakeMaker' => '6.31'
-                                               },
-                       'AUTHOR' => 'Ricardo Signes <rjbs@cpan.org>',
-                       'BUILD_REQUIRES' => {
-                                             'Test::More' => '0'
-                                           },
-                       'ABSTRACT' => 'a PodWeaver plugin used to build Task distributions',
-                       'EXE_FILES' => [],
-                       'VERSION' => '0.100890',
-                       'PREREQ_PM' => {
-                                        'Dist::Zilla::Role::FileGatherer' => '0',
-                                        'Dist::Zilla::Plugin::PodWeaver' => '0',
-                                        'Dist::Zilla::Role::PrereqSource' => '0',
-                                        'Pod::Elemental' => '0',
-                                        'Pod::Weaver::Role::Section' => '0',
-                                        'Moose::Autobox' => '0',
-                                        'Test::More' => '0.88',
-                                        'Dist::Zilla' => '2',
-                                        'Pod::Elemental::Transformer::Nester' => '0',
-                                        'Pod::Weaver' => '3',
-                                        'Pod::Elemental::Selectors' => '0',
-                                        'Moose' => '0',
-                                        'Pod::Weaver::Role::Dialect' => '0'
-                                      },
-                       'LICENSE' => 'perl'
-                     );
+  'ABSTRACT' => 'a PodWeaver plugin used to build Task distributions',
+  'AUTHOR' => 'Ricardo Signes <rjbs@cpan.org>',
+  'BUILD_REQUIRES' => {
+    'Test::More' => '0'
+  },
+  'CONFIGURE_REQUIRES' => {
+    'ExtUtils::MakeMaker' => '6.31'
+  },
+  'DISTNAME' => 'Dist-Zilla-Plugin-TaskWeaver',
+  'EXE_FILES' => [],
+  'LICENSE' => 'perl',
+  'NAME' => 'Dist::Zilla::Plugin::TaskWeaver',
+  'PREREQ_PM' => {
+    'Dist::Zilla' => '2',
+    'Dist::Zilla::Plugin::PodWeaver' => '0',
+    'Dist::Zilla::Role::FileGatherer' => '0',
+    'Dist::Zilla::Role::PrereqSource' => '0',
+    'Moose' => '0',
+    'Moose::Autobox' => '0',
+    'Pod::Elemental' => '0',
+    'Pod::Elemental::Selectors' => '0',
+    'Pod::Elemental::Transformer::Nester' => '0',
+    'Pod::Weaver' => '3',
+    'Pod::Weaver::Role::Dialect' => '0',
+    'Pod::Weaver::Role::Section' => '0',
+    'Test::More' => '0.88'
+  },
+  'VERSION' => '0.101620',
+  'test' => {
+    'TESTS' => 't/*.t'
+  }
+);
 
 
-delete $WriteMakefileArgs{BUILD_REQUIRES}
-  unless eval { ExtUtils::MakeMaker->VERSION(6.56) };
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
 
 delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
   unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
