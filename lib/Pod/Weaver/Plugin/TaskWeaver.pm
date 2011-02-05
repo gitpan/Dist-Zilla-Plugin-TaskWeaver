@@ -1,6 +1,6 @@
 package Pod::Weaver::Plugin::TaskWeaver;
 BEGIN {
-  $Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.101620';
+  $Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.101621';
 }
 use Moose;
 with 'Pod::Weaver::Role::Dialect';
@@ -104,7 +104,7 @@ Pod::Weaver::Plugin::TaskWeaver - Dist::Zilla::Plugin::TaskWeaver's helper
 
 =head1 VERSION
 
-version 0.101620
+version 0.101621
 
 =head1 DESCRIPTION
 
@@ -119,11 +119,11 @@ more information consult the L<Dist::Zilla::Plugin::TaskWeaver> documentation.
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo Signes.
+This software is copyright (c) 2011 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

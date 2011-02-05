@@ -12,7 +12,7 @@ my %WriteMakefileArgs = (
   'ABSTRACT' => 'a PodWeaver plugin used to build Task distributions',
   'AUTHOR' => 'Ricardo Signes <rjbs@cpan.org>',
   'BUILD_REQUIRES' => {
-    'Test::More' => '0'
+    'Test::More' => '0.96'
   },
   'CONFIGURE_REQUIRES' => {
     'ExtUtils::MakeMaker' => '6.31'
@@ -36,7 +36,7 @@ my %WriteMakefileArgs = (
     'Pod::Weaver::Role::Section' => '0',
     'Test::More' => '0.88'
   },
-  'VERSION' => '0.101620',
+  'VERSION' => '0.101621',
   'test' => {
     'TESTS' => 't/*.t'
   }

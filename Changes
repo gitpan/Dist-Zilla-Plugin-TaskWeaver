@@ -1,5 +1,8 @@
 Revision history for Dist-Zilla-Plugin-TaskWeaver
 
+0.101621  2011-02-05 14:26:07 America/New_York
+          minor doc fixe; thanks, Glenn Fowler
+
 0.101620  2010-06-11 18:53:23 America/New_York
           L<>-ify package names, RT #56818
 
