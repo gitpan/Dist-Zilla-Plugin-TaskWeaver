@@ -1,6 +1,6 @@
 package Pod::Weaver::Plugin::TaskWeaver;
-BEGIN {
-  $Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.101621';
+{
+  $Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.101622';
 }
 use Moose;
 with 'Pod::Weaver::Role::Dialect';
@@ -16,7 +16,7 @@ has zillaplugin => (is => 'ro', isa => 'Object', required => 1);
 
 sub record_prereq {
   my ($self, $pkg, $ver) = @_;
-  $self->zillaplugin->prereq->{$pkg} = $ver;
+  $self->zillaplugin->prereq->{$pkg} = defined $ver ? $ver : 0;
 }
 
 sub translate_dialect {
@@ -104,7 +104,7 @@ Pod::Weaver::Plugin::TaskWeaver - Dist::Zilla::Plugin::TaskWeaver's helper
 
 =head1 VERSION
 
-version 0.101621
+version 0.101622
 
 =head1 DESCRIPTION
 
@@ -123,7 +123,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Ricardo Signes.
+This software is copyright (c) 2012 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

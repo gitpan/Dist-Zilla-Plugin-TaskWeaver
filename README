@@ -1,11 +1,11 @@
 
 
 This archive contains the distribution Dist-Zilla-Plugin-TaskWeaver,
-version 0.101621:
+version 0.101622:
 
   a PodWeaver plugin used to build Task distributions
 
-This software is copyright (c) 2011 by Ricardo Signes.
+This software is copyright (c) 2012 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

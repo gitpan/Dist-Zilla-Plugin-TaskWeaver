@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::TaskWeaver;
-BEGIN {
-  $Dist::Zilla::Plugin::TaskWeaver::VERSION = '0.101621';
+{
+  $Dist::Zilla::Plugin::TaskWeaver::VERSION = '0.101622';
 }
 use Moose;
 extends qw(Dist::Zilla::Plugin::PodWeaver);
@@ -74,7 +74,7 @@ Dist::Zilla::Plugin::TaskWeaver - a PodWeaver plugin used to build Task distribu
 
 =head1 VERSION
 
-version 0.101621
+version 0.101622
 
 =head1 DESCRIPTION
 
@@ -120,7 +120,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Ricardo Signes.
+This software is copyright (c) 2012 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
