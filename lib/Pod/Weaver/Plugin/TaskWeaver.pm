@@ -1,6 +1,6 @@
 package Pod::Weaver::Plugin::TaskWeaver;
 {
-  $Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.101622';
+  $Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.101623';
 }
 use Moose;
 with 'Pod::Weaver::Role::Dialect';
@@ -33,7 +33,7 @@ sub translate_dialect {
   $pkg_nester->transform_node($document);
 
   my $pkgroup_nester = Pod::Elemental::Transformer::Nester->new({
-    top_selector => s_command([ qw(pkgroup) ]),
+    top_selector => s_command([ qw(pkgroup pkggroup) ]),
     content_selectors => [
       s_flat,
       s_command( [ qw(pkg) ]),
@@ -104,7 +104,7 @@ Pod::Weaver::Plugin::TaskWeaver - Dist::Zilla::Plugin::TaskWeaver's helper
 
 =head1 VERSION
 
-version 0.101622
+version 0.101623
 
 =head1 DESCRIPTION
 
