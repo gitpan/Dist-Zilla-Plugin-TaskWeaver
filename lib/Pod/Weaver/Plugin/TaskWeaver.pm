@@ -1,6 +1,6 @@
 package Pod::Weaver::Plugin::TaskWeaver;
 {
-  $Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.101623';
+  $Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.101624';
 }
 use Moose;
 with 'Pod::Weaver::Role::Dialect';
@@ -55,7 +55,7 @@ sub weave_section {
     my $child = $input_pod->children->[ $i ];
     unshift @pkgroups, splice(@{$input_pod->children}, $i, 1)
       if  $child->does('Pod::Elemental::Command')
-      and $child->command eq 'pkgroup';
+      and ($child->command eq 'pkgroup' or $child->command eq 'pkggroup');
   }
 
   for my $pkgroup (@pkgroups) {
@@ -104,7 +104,7 @@ Pod::Weaver::Plugin::TaskWeaver - Dist::Zilla::Plugin::TaskWeaver's helper
 
 =head1 VERSION
 
-version 0.101623
+version 0.101624
 
 =head1 DESCRIPTION
 

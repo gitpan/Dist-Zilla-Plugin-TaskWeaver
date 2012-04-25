@@ -53,7 +53,7 @@
          "web" : "https://github.com/rjbs/dist-zilla-plugin-taskweaver"
       }
    },
-   "version" : "0.101623",
+   "version" : "0.101624",
    "x_Dist_Zilla" : {
       "plugins" : [
          {

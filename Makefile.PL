@@ -38,7 +38,7 @@ my %WriteMakefileArgs = (
     "Pod::Weaver::Role::Section" => 0,
     "Test::More" => "0.88"
   },
-  "VERSION" => "0.101623",
+  "VERSION" => "0.101624",
   "test" => {
     "TESTS" => "t/*.t"
   }
