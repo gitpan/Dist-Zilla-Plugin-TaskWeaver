@@ -55,16 +55,16 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/rjbs/dist-zilla-plugin-taskweaver/issues"
+         "web" : "https://github.com/rjbs/Dist-Zilla-Plugin-TaskWeaver/issues"
       },
-      "homepage" : "https://github.com/rjbs/dist-zilla-plugin-taskweaver",
+      "homepage" : "https://github.com/rjbs/Dist-Zilla-Plugin-TaskWeaver",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/rjbs/dist-zilla-plugin-taskweaver.git",
-         "web" : "https://github.com/rjbs/dist-zilla-plugin-taskweaver"
+         "url" : "https://github.com/rjbs/Dist-Zilla-Plugin-TaskWeaver.git",
+         "web" : "https://github.com/rjbs/Dist-Zilla-Plugin-TaskWeaver"
       }
    },
-   "version" : "0.101625",
+   "version" : "0.101626",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.019002"

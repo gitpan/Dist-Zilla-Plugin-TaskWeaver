@@ -32,10 +32,10 @@ requires:
   Pod::Weaver::Role::Section: 0
   Test::More: 0.88
 resources:
-  bugtracker: https://github.com/rjbs/dist-zilla-plugin-taskweaver/issues
-  homepage: https://github.com/rjbs/dist-zilla-plugin-taskweaver
-  repository: https://github.com/rjbs/dist-zilla-plugin-taskweaver.git
-version: 0.101625
+  bugtracker: https://github.com/rjbs/Dist-Zilla-Plugin-TaskWeaver/issues
+  homepage: https://github.com/rjbs/Dist-Zilla-Plugin-TaskWeaver
+  repository: https://github.com/rjbs/Dist-Zilla-Plugin-TaskWeaver.git
+version: 0.101626
 x_Dist_Zilla:
   perl:
     version: 5.019002

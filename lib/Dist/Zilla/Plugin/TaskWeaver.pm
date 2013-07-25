@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::TaskWeaver;
 {
-  $Dist::Zilla::Plugin::TaskWeaver::VERSION = '0.101625';
+  $Dist::Zilla::Plugin::TaskWeaver::VERSION = '0.101626';
 }
 use Moose;
 extends qw(Dist::Zilla::Plugin::PodWeaver);
@@ -75,7 +75,7 @@ Dist::Zilla::Plugin::TaskWeaver - a PodWeaver plugin used to build Task distribu
 
 =head1 VERSION
 
-version 0.101625
+version 0.101626
 
 =head1 DESCRIPTION
 
