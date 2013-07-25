@@ -11,11 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "a PodWeaver plugin used to build Task distributions",
   "AUTHOR" => "Ricardo Signes <rjbs\@cpan.org>",
-  "BUILD_REQUIRES" => {
-    "Test::More" => "0.96",
-    "strict" => 0,
-    "warnings" => 0
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -24,26 +20,46 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Dist::Zilla::Plugin::TaskWeaver",
   "PREREQ_PM" => {
-    "Dist::Zilla" => 2,
-    "Dist::Zilla::Plugin::PodWeaver" => 0,
-    "Dist::Zilla::Role::FileGatherer" => 0,
-    "Dist::Zilla::Role::PrereqSource" => 0,
-    "Moose" => 0,
-    "Moose::Autobox" => 0,
-    "Pod::Elemental" => 0,
-    "Pod::Elemental::Selectors" => 0,
-    "Pod::Elemental::Transformer::Nester" => 0,
-    "Pod::Weaver" => 3,
-    "Pod::Weaver::Role::Dialect" => 0,
-    "Pod::Weaver::Role::Section" => 0,
+    "Dist::Zilla" => "2",
+    "Dist::Zilla::Plugin::PodWeaver" => "0",
+    "Dist::Zilla::Role::FileGatherer" => "0",
+    "Dist::Zilla::Role::PrereqSource" => "0",
+    "Moose" => "0",
+    "Moose::Autobox" => "0",
+    "Pod::Elemental" => "0",
+    "Pod::Elemental::Selectors" => "0",
+    "Pod::Elemental::Transformer::Nester" => "0",
+    "Pod::Weaver" => "3",
+    "Pod::Weaver::Role::Dialect" => "0",
+    "Pod::Weaver::Role::Section" => "0",
     "Test::More" => "0.88"
   },
-  "VERSION" => "0.101624",
+  "TEST_REQUIRES" => {
+    "File::Find" => "0",
+    "File::Temp" => "0",
+    "Test::More" => "0.96",
+    "strict" => "0",
+    "warnings" => "0"
+  },
+  "VERSION" => "0.101625",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  my $tr = delete $WriteMakefileArgs{TEST_REQUIRES};
+  my $br = $WriteMakefileArgs{BUILD_REQUIRES};
+  for my $mod ( keys %$tr ) {
+    if ( exists $br->{$mod} ) {
+      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
+    }
+    else {
+      $br->{$mod} = $tr->{$mod};
+    }
+  }
+}
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
   my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
