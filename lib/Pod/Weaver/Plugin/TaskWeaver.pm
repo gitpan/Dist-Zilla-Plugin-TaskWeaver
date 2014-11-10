@@ -1,14 +1,24 @@
 package Pod::Weaver::Plugin::TaskWeaver;
-{
-  $Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.101626';
-}
-use Moose;
-with 'Pod::Weaver::Role::Dialect';
-with 'Pod::Weaver::Role::Section';
 # ABSTRACT: Dist::Zilla::Plugin::TaskWeaver's helper
+$Pod::Weaver::Plugin::TaskWeaver::VERSION = '0.101627';
+use Moose;
+with 'Pod::Weaver::Role::Dialect', 'Pod::Weaver::Role::Section';
 
+use namespace::autoclean;
 
-use Moose::Autobox;
+#pod =head1 DESCRIPTION
+#pod
+#pod B<Achtung!>  This class should not need to exist; it should be possible for
+#pod Dist::Zilla::Plugin::TaskWeaver to also be a Pod::Weaver plugin, but a subtle
+#pod bug in Moose prevents this from happening right now.  In the future, this class
+#pod may go away.
+#pod
+#pod This is a Pod::Weaver plugin.  It functions as both a Dialect and a Section,
+#pod although this is basically hackery to get things into the right order.  For
+#pod more information consult the L<Dist::Zilla::Plugin::TaskWeaver> documentation.
+#pod
+#pod =cut
+
 use Pod::Elemental::Selectors -all;
 use Pod::Elemental::Transformer::Nester;
 
@@ -51,7 +61,7 @@ sub weave_section {
   my $input_pod = $input->{pod_document};
 
   my @pkgroups;
-  for my $i (reverse $input_pod->children->keys->flatten) {
+  for my $i (reverse(0 .. $#{ $input_pod->children })) {
     my $child = $input_pod->children->[ $i ];
     unshift @pkgroups, splice(@{$input_pod->children}, $i, 1)
       if  $child->does('Pod::Elemental::Command')
@@ -73,7 +83,7 @@ sub weave_section {
       $child->content(defined $ver ? "L<$pkg> $ver" : "L<$pkg>");
 
       if (defined $ver and defined $reason) {
-        $child->children->unshift(
+        unshift @{ $child->children }, (
           Pod::Elemental::Element::Pod5::Ordinary->new({
             content => "Version $ver required because: $reason",
           })
@@ -88,7 +98,7 @@ sub weave_section {
     children => \@pkgroups,
   });
 
-  $input_pod->children->unshift($section);
+  unshift @{ $input_pod->children}, $section;
 
   return;
 }
@@ -99,13 +109,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Pod::Weaver::Plugin::TaskWeaver - Dist::Zilla::Plugin::TaskWeaver's helper
 
 =head1 VERSION
 
-version 0.101626
+version 0.101627
 
 =head1 DESCRIPTION
 
@@ -124,7 +136,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo Signes.
+This software is copyright (c) 2014 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
